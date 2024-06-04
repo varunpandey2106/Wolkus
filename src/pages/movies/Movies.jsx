@@ -9,7 +9,6 @@ import {
 import { useEffect, useState } from "react";
 import { fetchMovies } from "../../services/api";
 import CardComponent from "../../components/CardComponent";
-import PaginationComponent from "../../components/PaginationComponent";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -71,11 +70,6 @@ const Movies = () => {
           )}
       </Grid>
 
-      <PaginationComponent
-        activePage={activePage}
-        totalPages={totalPages}
-        setActivePage={setActivePage}
-      />
     </Container>
   );
 };

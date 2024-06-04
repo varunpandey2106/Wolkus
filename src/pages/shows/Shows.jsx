@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { fetchTvSeries } from "../../services/api";
 import CardComponent from "../../components/CardComponent";
-import PaginationComponent from "../../components/PaginationComponent";
+// import PaginationComponent from "../../components/PaginationComponent";
 
 const Shows = () => {
   const [shows, setShows] = useState([]);
@@ -71,11 +71,6 @@ const Shows = () => {
           )}
       </Grid>
 
-      <PaginationComponent
-        activePage={activePage}
-        totalPages={totalPages}
-        setActivePage={setActivePage}
-      />
     </Container>
   );
 };

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { searchData } from "../../services/api";
 import CardComponent from "../../components/CardComponent";
-import PaginationComponent from "../../components/PaginationComponent";
+// import PaginationComponent from "../../components/PaginationComponent";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -92,13 +92,7 @@ const Search = () => {
           )}
       </Grid>
 
-      {data?.length > 0 && !isLoading && (
-        <PaginationComponent
-          activePage={activePage}
-          totalPages={totalPages}
-          setActivePage={setActivePage}
-        />
-      )}
+
     </Container>
   );
 };
