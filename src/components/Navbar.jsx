@@ -1,151 +1,162 @@
+
+
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import {
+//   Box,
+//   Flex,
+//   Avatar,
+//   Menu,
+//   MenuButton,
+//   MenuList,
+//   MenuItem,
+//   IconButton,
+//   useColorMode,
+//   useColorModeValue
+// } from "@chakra-ui/react";
+// import { SearchIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
+// import { useAuth } from "../context/useAuth";
+
+// const Navbar = () => {
+//   const { user, logout } = useAuth();
+//   const { toggleColorMode } = useColorMode();
+//   const colorMode = useColorModeValue("light", "dark");
+//   const icon = useColorModeValue(<MoonIcon />, <SunIcon />);
+
+//   return (
+//     <Box py="4" mb="2" px={8}>
+//       <Flex justifyContent={"space-between"} alignItems="center">
+//         <Link to="/">
+//           <Box
+//             fontSize={"2xl"}
+//             fontWeight={"bold"}
+//             color={"red"}
+//             letterSpacing={"widest"}
+//             fontFamily={"mono"}
+//           >
+//             WOLKUS
+//           </Box>
+//         </Link>
+
+//         {/* DESKTOP */}
+//         {user && (
+//           <Flex gap="4" alignItems={"center"}>
+//             <Link to="/">Home</Link>
+//             <Link to="/search">
+//               <SearchIcon fontSize={"xl"} />
+//             </Link>
+//             <IconButton
+//               aria-label="Toggle dark mode"
+//               icon={icon}
+//               onClick={toggleColorMode}
+//               bg="transparent"
+//             />
+//             <Menu>
+//               <MenuButton>
+//                 <Avatar
+//                   bg={"red.500"}
+//                   color={"white"}
+//                   size={"sm"}
+//                   name={user?.email}
+//                 />
+//               </MenuButton>
+//               <MenuList>
+//                 <Link to="/watchlist">
+//                   <MenuItem>Watchlist</MenuItem>
+//                 </Link>
+//                 <MenuItem onClick={logout}>Logout</MenuItem>
+//               </MenuList>
+//             </Menu>
+//           </Flex>
+//         )}
+//       </Flex>
+//     </Box>
+//   );
+// };
+
+// export default Navbar;
+
+import React from "react";
+import { Link } from "react-router-dom";
 import {
-  Avatar,
   Box,
-  Button,
-  Container,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
   Flex,
-  IconButton,
+  Avatar,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList,
-  useDisclosure,
+  MenuItem,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+  Text,
+  Button,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { SearchIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { useAuth } from "../context/useAuth";
-import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
-  const { user, signInWithGoogle, logout } = useAuth();
-  const { onOpen, isOpen, onClose } = useDisclosure();
-
-  const handleGoogleLogin = async () => {
-    try {
-      await signInWithGoogle();
-      console.log("success");
-    } catch (error) {
-      console.log("errr", error);
-    }
-  };
+  const { user, logout } = useAuth();
+  const { toggleColorMode } = useColorMode();
+  const icon = useColorModeValue(<MoonIcon />, <SunIcon />);
 
   return (
-    <Box py="4" mb="2">
-      <Container maxW={"container.xl"}>
-        <Flex justifyContent={"space-between"}>
-          <Link to="/">
-            <Box
-              fontSize={"2xl"}
-              fontWeight={"bold"}
-              color={"red"}
-              letterSpacing={"widest"}
-              fontFamily={"mono"}
-            >
-              NETFLEX
-            </Box>
-          </Link>
-
-          {/* DESKTOP */}
-          <Flex
-            gap="4"
-            alignItems={"center"}
-            display={{ base: "none", md: "flex" }}
+    <Box py="4" mb="2" px={8} boxShadow="sm" bg={useColorModeValue("white", "gray.800")}>
+      <Flex justifyContent={"space-between"} alignItems="center">
+        <Link to="/">
+          <Text
+            fontSize={"2xl"}
+            fontWeight={"bold"}
+            color={"red.500"}
+            letterSpacing={"widest"}
+            fontFamily={"mono"}
           >
-            <Link to="/">Home</Link>
-            <Link to="/movies">Movies</Link>
-            <Link to="/shows">TV Shows</Link>
-            <Link to="/search">
-              <SearchIcon fontSize={"xl"} />
+            WOLKUS
+          </Text>
+        </Link>
+
+        {/* DESKTOP */}
+        {user && (
+          <Flex gap="4" alignItems={"center"}>
+            <Link to="/">
+              <Button variant="ghost" _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}>
+                Home
+              </Button>
             </Link>
-            {user && (
-              <Menu>
-                <MenuButton>
-                  <Avatar
-                    bg={"red.500"}
-                    color={"white"}
-                    size={"sm"}
-                    name={user?.email}
-                  />
-                </MenuButton>
-                <MenuList>
-                  <Link to="/watchlist">
-                    <MenuItem>Watchlist</MenuItem>
-                  </Link>
-                  <MenuItem onClick={logout}>Logout</MenuItem>
-                </MenuList>
-              </Menu>
-            )}
-            {!user && (
-              <Avatar
-                size={"sm"}
-                bg={"gray.800"}
-                as="button"
-                onClick={handleGoogleLogin}
+            <Link to="/search">
+              <IconButton
+                aria-label="Search"
+                icon={<SearchIcon />}
+                variant="ghost"
+                _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}
               />
-            )}
-          </Flex>
-
-          {/* Mobile */}
-          <Flex
-            display={{ base: "flex", md: "none" }}
-            alignItems={"center"}
-            gap="4"
-          >
-            <Link to="/search">
-              <SearchIcon fontSize={"xl"} />
             </Link>
-            <IconButton onClick={onOpen} icon={<HamburgerIcon />} />
-            <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-              <DrawerOverlay />
-              <DrawerContent bg={"black"}>
-                <DrawerCloseButton />
-                <DrawerHeader>
-                  {user ? (
-                    <Flex alignItems="center" gap="2">
-                      <Avatar bg="red.500" size={"sm"} name={user?.email} />
-                      <Box fontSize={"sm"}>
-                        {user?.displayName || user?.email}
-                      </Box>
-                    </Flex>
-                  ) : (
-                    <Avatar
-                      size={"sm"}
-                      bg="gray.800"
-                      as="button"
-                      onClick={handleGoogleLogin}
-                    />
-                  )}
-                </DrawerHeader>
-
-                <DrawerBody>
-                  <Flex flexDirection={"column"} gap={"4"} onClick={onClose}>
-                    <Link to="/">Home</Link>
-                    <Link to="/movies">Movies</Link>
-                    <Link to="/shows">TV Shows</Link>
-                    {user && (
-                      <>
-                        <Link to="/watchlist">Watchlist</Link>
-                        <Button
-                          variant={"outline"}
-                          colorScheme="red"
-                          onClick={logout}
-                        >
-                          Logout
-                        </Button>
-                      </>
-                    )}
-                  </Flex>
-                </DrawerBody>
-              </DrawerContent>
-            </Drawer>
+            <IconButton
+              aria-label="Toggle dark mode"
+              icon={icon}
+              onClick={toggleColorMode}
+              variant="ghost"
+              _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}
+            />
+            <Menu>
+              <MenuButton>
+                <Avatar
+                  bg={"red.500"}
+                  color={"white"}
+                  size={"sm"}
+                  name={user?.email}
+                />
+              </MenuButton>
+              <MenuList>
+                <Link to="/watchlist">
+                  <MenuItem>Watchlist</MenuItem>
+                </Link>
+                <MenuItem onClick={logout}>Logout</MenuItem>
+              </MenuList>
+            </Menu>
           </Flex>
-        </Flex>
-      </Container>
+        )}
+      </Flex>
     </Box>
   );
 };

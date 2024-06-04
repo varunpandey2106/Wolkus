@@ -32,7 +32,6 @@ import {
   ratingToPercentage,
   resolveRatingColor,
 } from "../utils/helpers";
-import VideoComponent from "../components/VideoComponent";
 import { useAuth } from "../context/useAuth";
 import { useFirestore } from "../services/firestore";
 
@@ -280,7 +279,7 @@ const DetailsPage = () => {
             ))}
         </Flex>
 
-        <Heading
+        {/* <Heading
           as="h2"
           fontSize={"md"}
           textTransform={"uppercase"}
@@ -300,7 +299,7 @@ const DetailsPage = () => {
                 </Text>
               </Box>
             ))}
-        </Flex>
+        </Flex> */}
       </Container>
     </Box>
   );

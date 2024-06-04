@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <Container maxW={"container.xl"}>
-      <Flex alignItems={"baseline"} gap={"4"} my={"10"}>
+      {/* <Flex alignItems={"baseline"} gap={"4"} my={"10"}>
         <Heading as="h2" fontSize={"md"} textTransform={"uppercase"}>
           Trending
         </Heading>
@@ -64,7 +64,7 @@ const Home = () => {
             This Week
           </Box>
         </Flex>
-      </Flex>
+      </Flex> */}
       {/* {loading && <div>Loadin...</div>} */}
       <Grid
         templateColumns={{
