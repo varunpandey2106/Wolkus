@@ -33,39 +33,7 @@ const Home = () => {
 
   return (
     <Container maxW={"container.xl"}>
-      {/* <Flex alignItems={"baseline"} gap={"4"} my={"10"}>
-        <Heading as="h2" fontSize={"md"} textTransform={"uppercase"}>
-          Trending
-        </Heading>
-        <Flex
-          alignItems={"center"}
-          gap={"2"}
-          border={"1px solid teal"}
-          borderRadius={"20px"}
-        >
-          <Box
-            as="button"
-            px="3"
-            py="1"
-            borderRadius={"20px"}
-            bg={`${timeWindow === "day" ? "gray.800" : ""}`}
-            onClick={() => setTimeWindow("day")}
-          >
-            Today
-          </Box>
-          <Box
-            as="button"
-            px="3"
-            py="1"
-            borderRadius={"20px"}
-            bg={`${timeWindow === "week" ? "gray.800" : ""}`}
-            onClick={() => setTimeWindow("week")}
-          >
-            This Week
-          </Box>
-        </Flex>
-      </Flex> */}
-      {/* {loading && <div>Loadin...</div>} */}
+
       <Grid
         templateColumns={{
           base: "1fr",
