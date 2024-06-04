@@ -13,29 +13,35 @@ This repository contains the DREAM SOFTWARE INTERNSHIP task/submission for Wolku
   
 - **TMDB Movie API**: The application fetches movie data from The Movie Database (TMDB) API, which provides a rich source of movie information, including details, ratings, and reviews.
   
-- **Vercel**: Vercel is used for deployment, providing a platform to host the application and make it accessible to users over the internet.
+- **Vercel**: Vercel is used for deployment, providing a platform to host the application.
 
 ### Run Instructions:
 
 To run this application locally, follow these steps:
 
 1. **Clone the Repository**:
+```bash
+git clone https://github.com/varunpandey2106/Wolkus.git
+```
 
-2. **Get Firebase Credentials**:
+3. **Get Firebase Credentials**:
 Obtain Firebase credentials from the Firebase Developer Console. This includes the Firebase project's configuration, such as the API key, authDomain, projectId, etc.
 
-3. **Configure Environment Variables**:
-Create a `.env` file in the root directory of the project and add the Firebase credentials as environment variables.
+4. **Get TMDB API keys**
 
+5. **Configure Environment Variables**:
+Create a `.env` file in the root directory of the project and add the Firebase credentials as environment variables along with API key.
+
+```bash
 .env:
-VITE_API_KEY="MOVIEAPIKEY"
-VITE_FIREBASE_API_KEY=""
-VITE_FIREBASE_AUTH_DOMAIN=""
-VITE_FIREBASE_PROJECT_ID=""
-VITE_FIREBASE_STORAGE_BUCKET=""
-VITE_FIREBASE_MESSAGING_SENDER_ID=""
-VITE_FIREBASE_APP_ID=""
-
+VITE_API_KEY="MOVIEAPIKEY" 
+VITE_FIREBASE_API_KEY="  "
+VITE_FIREBASE_AUTH_DOMAIN=" "
+VITE_FIREBASE_PROJECT_ID=" "
+VITE_FIREBASE_STORAGE_BUCKET=" "
+VITE_FIREBASE_MESSAGING_SENDER_ID=" "
+VITE_FIREBASE_APP_ID=" "
+```
 
 
 5. **Install Dependencies**:
