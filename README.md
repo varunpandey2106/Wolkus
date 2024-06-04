@@ -1,8 +1,8 @@
-# WOLKUS- VARUN PANDEY 20MIC0139
+# WOLKUS MOVIE LIBRARY
 
-## Welcome to Wolkus Technology Solutions' Movie Library Web App!
+## VARUN PANDEY 20MIC0139
 
-This repository contains the DREAM SOFTWARE INTERNSHIP task for Wolkus Technology Solutions. The task involves building a movie library web application using various technologies.
+This repository contains the DREAM SOFTWARE INTERNSHIP task/submission for Wolkus Technology Solutions.
 
 
 ### Technologies Used:
